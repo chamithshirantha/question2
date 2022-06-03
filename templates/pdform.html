@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add</title>
+</head>
+<style>
+input[type=text] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+input[type=date] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+input[type=number] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+.center {
+  margin: auto;
+  width: 60%;
+  border: 3px solid #73AD21;
+  padding: 10px;
+}
+ body {
+  background-color: coral;
+}
+</style>
+<body>
+<br><br><br>
+<div class="center">
+  <h3>Register Patient</h3>
+<form action="{{ url_for('add') }}" method="post">
+  <label >First Name</label>
+  <input type="text" name="fname">
+
+  <label >Last Name</label>
+  <input type="text" name="lname">
+
+    <label >Birth Day</label>
+    <input type="date" name="birthday">
+
+    <label >Contact Number</label>
+    <input type="number" name="contact">
+
+    <label >Nic</label>
+  <input type="text" name="nic">
+
+    <label >Note</label>
+  <input type="text" name="note"><br><br>
+
+  <input type="submit" value="Submit">
+</form>
+</div>
+</body>
+</html>

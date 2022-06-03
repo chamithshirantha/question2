@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
+
+a:link, a:visited {
+  background-color: #ff9800;
+  color: white;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+a:hover, a:active {
+  background-color: #e68a00;
+}
+
+de:link, de:visited {
+  background-color: #ff9800;
+  color: white;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+de:hover, de:active {
+  background-color: #e68a00;
+}
+
+
+</style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+<a href="{{ url_for('add') }}" target="_blank"><i class="fa fa-user-plus" style="font-size:24px"></i> Register Patient</a><br><br>
+
+<table id="customers">
+  <tr>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Birth Day</th>
+    <th>Contact Number</th>
+    <th>Photo</th>
+    <th>NIC</th>
+    <th>Notes</th>
+    <th>Update</th>
+    <th>Delete</th>
+  </tr>
+  {% for i in data %}
+  <tr>
+    <td>{{ i.first_name }}</td>
+    <td>{{ i.last_name }}</td>
+    <td>{{ i.birthday }}</td>
+    <td>{{ i.contact_number }}</td>
+    <td>Not available</td>
+    <td>{{ i.nic }}</td>
+    <td>{{ i.note }}</td>
+    <td><a href="{{ url_for('update',id = i['id']) }}" target="_blank"><i class="fa fa-pencil-square-o" style="font-size:24px"></i> Update</a></td>
+    <td><a href="{{ url_for('delete',id = i['id']) }}" target="_blank"><i class="fa fa-close" style="font-size:24px"></i> Delete</a></td>
+
+  </tr>
+  {% endfor %}
+</table>
+
+</body>
+</html>
+
+
